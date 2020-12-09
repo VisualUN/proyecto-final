@@ -380,5 +380,4 @@ am4core.ready(function() {
     }); // end am4core.ready()
 
 updateMap(0);
-updateMap(0);
 chart3();
