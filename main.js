@@ -204,4 +204,118 @@ function updateMap(mes) {
 
 }
 
+am4core.ready(function() {
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    
+    chart.data = [
+        {
+          "Periodo": "2019-01",
+          "Total": 203,
+          "Moda": 15
+        },
+        {
+          "Periodo": "2019-02",
+          "Total": 314,
+          "Moda": 25
+        },
+        {
+          "Periodo": "2019-03",
+          "Total": 352,
+          "Moda": 28
+        },
+        {
+          "Periodo": "2019-04",
+          "Total": 251,
+          "Moda": 20
+        },
+        {
+          "Periodo": "2019-05",
+          "Total": 188,
+          "Moda": 13
+        },
+        {
+          "Periodo": "2019-06",
+          "Total": 124,
+          "Moda": 8
+        },
+        {
+          "Periodo": "2019-07",
+          "Total": 137,
+          "Moda": 8
+        },
+        {
+          "Periodo": "2019-08",
+          "Total": 148,
+          "Moda": 10
+        },
+        {
+          "Periodo": "2019-09",
+          "Total": 155,
+          "Moda": 11
+        },
+        {
+          "Periodo": "2019-10",
+          "Total": 161,
+          "Moda": 14
+        },
+        {
+          "Periodo": "2019-11",
+          "Total": 181,
+          "Moda": 14
+        },
+        {
+          "Periodo": "2019-12",
+          "Total": 202,
+          "Moda": 15
+        }
+      ];
+      
+    
+    //create category axis for years
+    var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "Periodo";
+    categoryAxis.renderer.inversed = true;
+    categoryAxis.renderer.grid.template.location = 0;
+    
+    //create value axis for income and expenses
+    var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.opposite = true;
+    
+    
+    //create columns
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.categoryY = "Periodo";
+    series.dataFields.valueX = "Total";
+    series.name = "Total";
+    series.columns.template.fillOpacity = 0.5;
+    series.columns.template.strokeOpacity = 0;
+    series.tooltipText = "Total en {categoryY}: {valueX.value}";
+    
+    //create line
+    var lineSeries = chart.series.push(new am4charts.LineSeries());
+    lineSeries.dataFields.categoryY = "Periodo";
+    lineSeries.dataFields.valueX = "Moda";
+    lineSeries.name = "Moda";
+    lineSeries.strokeWidth = 3;
+    lineSeries.tooltipText = "Moda en {categoryY}: {valueX.value}";
+    
+    //add bullets
+    var circleBullet = lineSeries.bullets.push(new am4charts.CircleBullet());
+    circleBullet.circle.fill = am4core.color("#fff");
+    circleBullet.circle.strokeWidth = 2;
+    
+    //add chart cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.behavior = "zoomY";
+    
+    //add legend
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
+
 updateMap(0);
