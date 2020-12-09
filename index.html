@@ -19,6 +19,7 @@
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <style>
@@ -104,49 +105,30 @@
 						</select>
 
                 <div class="map" id="map" style="height: 30em"></div>
+
             </div>
         </section>
-
         <section id="two" class="wrapper style1 special" style="background: white">
             <div class="inner" style="height: 100%;min-height: 30em">
                 <div class="chart-container" id="chart-container" style="height: 30em">
                     <canvas id="myChart" style="background: white;height: 18em"></canvas>
                 </div>
-            </div>
-            
-            <!--
-                <div class="inner" style="height: 30em;min-height: 30em">
-                <div id="chart-container2" style="height: 30em">
-                    <canvas id="myChar2t" style="background: white;height: 18em"></canvas>
-                </div>
-            </div>
-            -->
-            
-        </section>
-
-        <section id="two" class="wrapper style1 special" style="background: #21b2a6">
-
-            <div class="inner" style="height: 100%;min-height: 30em">
+                <div id="chartJoh" style="background: white;height: 18em"></div>
                 <div class="chart2-container" id="chart2-container" style="height: 30em">
                     <canvas id="myChart2" style="background: white;height: 18em"></canvas>
                 </div>
-            </div>
-
-            
-        </section>
-        
-        <section id="two" class="wrapper style1 special" style="background: white">
-            
-            <div class="inner" style="height: 100%;min-height: 30em">
                 <div class="chart-radar-container" id="chart-radar-container" style="height: 30em">
                     <canvas id="myRadarChart" style="background: white;height: 18em"></canvas>
                 </div>
+                <div class="inner" id=chart3 style="height: 100%;min-height: 30em"></div>
             </div>
             <div id="chartdiv"></div>
             
         </section>
 
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.scrollex.min.js"></script>
         <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -156,6 +138,8 @@
         <script src="assets/js/main.js"></script>
         <script src="data.js"></script>
         <script src="main.js"></script>
+        <script src="chart2.js"></script>
+
 
 
 </body>
