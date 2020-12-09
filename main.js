@@ -1,5 +1,7 @@
 var map = L.map('map', { maxZoom: 11 }).setView([4.592164298, -74.072166378], 11);
 var myChart = null;
+var myChart2 = null;
+var myRadarChart = null;
 //var mes = 0;
 const coords = [
     [0, 0],
@@ -74,6 +76,94 @@ function updateMap(mes) {
 
     myChart = new Chart(ctx, {
         type: 'bar',
+        data: {
+            labels: zone_names.slice(1),
+            datasets: [{
+                label: 'Valor promedio partículas pm2.5 en µg/m³',
+                data: contamination_values.slice(1),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    if (myChart2 != null) {
+        $('#myChart2').remove(); // this is my <canvas> element
+        $('#chart2-container').append('<canvas id="myChart"  style="background: white;height: 18em"></canvas>');
+    }
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+
+    myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: zone_names.slice(1),
+            datasets: [{
+                label: 'Valor promedio partículas pm2.5 en µg/m³',
+                data: contamination_values.slice(1),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    if (myRadarChart != null) {
+        $('#myRadarChart').remove(); // this is my <canvas> element
+        $('#chart-radar-container').append('<canvas id="myChart"  style="background: white;height: 18em"></canvas>');
+    }
+    var ctxChart = document.getElementById('myRadarChart').getContext('2d');
+
+    myRadarChart  = new Chart(ctxChart, {
+        type: 'radar',
         data: {
             labels: zone_names.slice(1),
             datasets: [{
