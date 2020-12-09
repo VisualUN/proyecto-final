@@ -58,6 +58,11 @@
 
 /* Grid */
 
+
+	.apexcharts-tooltip {
+		background: #5c5b5b;
+		color: black;
+  	}
 	.row {
 		border-bottom: solid 1px transparent;
 		-moz-box-sizing: border-box;

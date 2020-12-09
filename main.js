@@ -200,8 +200,70 @@ function updateMap(mes) {
         }
     });
     // end charts
+}
 
+function chart3(){
+    var options = {
+        series: [{
+        name: 'Promedio particulas PM 2.5',
+        data: [16.9, 26.2, 29.3, 20.9, 15.7, 10.3, 11.4, 12.3, 12.9, 13.4, 15.0, 16.8],
+      }],
+        chart: {
+        height: 350,
+        type: 'radar',
+      },
+      dataLabels: {
+        enabled: true,
+      },
+      plotOptions: {
+        radar: {
+          size: 140,
+          polygons: {
+            strokeColors: '#a3a2a2',
+            fill: {
+              colors: ['#a3a2a2', '#fff']
+            }
+          }
+        }
+      },
+      title: {
+        text: 'Promedio de particulas PM 2.5 durante cada mes del año 2019'
+      },
+      colors: ['#FF4560'],
+      markers: {
+        size: 4,
+        colors: ['#fff'],
+        strokeColor: '#e3223e',
+        strokeWidth: 2,
+      },
+      tooltip: {
+          
+        y: {
+          formatter: function(val) {
+            return val
+          }
+        }
+      },
+      xaxis: {
+        categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+      },
+      yaxis: {
+        tickAmount: 7,
+        labels: {
+          formatter: function(val, i) {
+            if (i % 2 === 0) {
+              return val
+            } else {
+              return ''
+            }
+          }
+        }
+      }
+      };
 
+      var chart = new ApexCharts(document.querySelector("#chart3"), options);
+      chart.render();
 }
 
 updateMap(0);
+chart3();
